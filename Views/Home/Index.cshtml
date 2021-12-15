@@ -12,36 +12,46 @@
 	<title>MassMail</title>
 </head>
 
-<h1>MassMail</h1>
+<h1 class="d-flex justify-content-center">MassMail</h1><br />
 
-<form method="post" asp-controller="Home" asp-action="Index" class="container align-items-center">
-	<div class="input-group mb-3 w-25">
-		<input asp-for="From" placeholder="De" class="form-control"/>
-		<span asp-validation-for="From" style="color: red;"></span>
+<form method="post" asp-controller="Home" asp-action="Index" class="container align-items-center vertical-center">
+	<div class="row align-items-center g-3" style="background-color: #ededed;">
+		<div class="col-6">
+			<input asp-for="From" placeholder="De" class="form-control"/>
+			<span asp-validation-for="From" style="color: red;"></span>
+		</div>
+		<div class="col-6">
+			<input asp-for="Password" placeholder="Senha" type="password" class="form-control" />
+			<span asp-validation-for="Password" style="color: red;"></span>
+		</div>
+		<div class="row-auto">
+			<input asp-for="ToField" placeholder="Para" class="form-control" />
+			<span asp-validation-for="ToField" style="color: red;"></span>
+			<input type="checkbox" id="bcc-checkbox" class="form-check-input" asp-for="BccOrNot"/>
+			<label for="bcc-checkbox">Enviar como cópia oculta</label>
+		</div>
+		<div class="row-auto">
+			<input asp-for="Subject" placeholder="Assunto" class="form-control" />
+			<span asp-validation-for="Subject" style="color: red;"></span>
+		</div>
+		<div class="row-auto">
+			<textarea asp-for="Body" class="form-control" rows="6" placeholder="Mensagem"></textarea>
+			<input type="checkbox" asp-for="HtmlOrNot" id="html-checkbox" class="form-check-input" />
+			<label for="html-checkbox">Formatação em HTML</label>
+			<span asp-validation-for="Body" style="color: red;"></span>
+		</div>
+		<div class="d-flex justify-content-center row-auto">
+			<button type="submit" class="d-flex justify-content-center text-center btn btn-primary col-2" value="Enviar" style="color: black; background-color: yellow; font-weight: 700;">Enviar</button>
+		</div>
+		
 	</div>
-	<div class="input-group mb-3 w-25">
-		<input asp-for="Password" placeholder="Senha" type="password" class="form-control" />
-		<span asp-validation-for="Password" style="color: red;"></span>
-	</div>
-	<div class="input-group mb-3 w-75">
-		<input asp-for="ToField" placeholder="Para" class="form-control" />
-		<span asp-validation-for="ToField" style="color: red;"></span>
-		<input type="checkbox" id="bcc-checkbox" class="form-check-input" asp-for="BccOrNot"/>
-		<label for="bcc-checkbox">Enviar como cópia oculta</label>
-	</div>
-	<div class="input-group mb-3 w-25">
-		<input asp-for="Subject" placeholder="Assunto" class="form-control" />
-		<span asp-validation-for="Subject" style="color: red;"></span>
-	</div>
-	<div class="input-group mb-3 w-75">
-		<textarea asp-for="Body" class="form-control" rows="6" placeholder="Mensagem"></textarea>
-		<input type="checkbox" asp-for="HtmlOrNot" id="html-checkbox" class="form-check-input" />
-		<label for="html-checkbox">Formatação em HTML</label>
-		<span asp-validation-for="Body" style="color: red;"></span>
-	</div>
-
-	<button type="submit" class="btn btn-primary" value="Enviar">Enviar</button>
 </form>
+
+@section Footer{
+	<footer class="d-flex justify-content-center navbar fixed-bottom">
+		<p style="font-size: 18pt">@DateTime.Now.Year - <a href="https://github.com/voidotexe/MassMail-Web">MassMail</a></p>
+	</footer>
+}
 
 @if (ViewBag.AuthenticationWarn)
 {

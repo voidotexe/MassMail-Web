@@ -21,7 +21,10 @@ namespace MassMailWeb.Models
         public string Body { get; set; }
         public string Attachment { get; set; }
 
+        [Display(Name = "Enviar como cópia oculta")]
         public bool BccOrNot { get; set; }
+
+        [Display(Name = "Formatação em HTML")]
         public bool HtmlOrNot { get; set; }
     }
 }

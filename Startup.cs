@@ -30,6 +30,8 @@ namespace MassMailWeb
             app.UseRouting();
 
             app.UseMvc();
+
+            app.UseStaticFiles();
         }
     }
 }

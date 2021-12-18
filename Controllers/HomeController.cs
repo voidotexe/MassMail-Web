@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MassMailWeb.Models;
 using MassMailWeb.Services;
+using MailKit.Security;
 
 namespace MassMailWeb.Controllers
 {
@@ -13,6 +14,7 @@ namespace MassMailWeb.Controllers
             Email email = new Email();
 
             ViewBag.AuthenticationWarn = false;
+            ViewBag.SentSuccessfully = false;
 
             return View(email);
         }
@@ -22,16 +24,22 @@ namespace MassMailWeb.Controllers
         {
             EmailService.SetMessage(email.From, email.ToField, email.Subject, email.Body, email.BccOrNot, email.HtmlOrNot);
 
-            if (EmailService.SendEmail(email.Password) != "Success")
+            try
+            {
+                EmailService.SendEmail(email.Password);
+            }
+            catch (AuthenticationException)
             {
                 ViewBag.AuthenticationWarn = true;
+                ViewBag.SentSuccessfully = false;
 
                 return View();
             }
             
             ViewBag.AuthenticationWarn = false;
+            ViewBag.SentSuccessfully = true;
             
-            return Content($"E-mail sent successfully!");
+            return View();
         }
     }
 }

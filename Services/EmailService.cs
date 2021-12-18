@@ -50,34 +50,20 @@ namespace MassMailWeb.Services
             return Message;
         }
 
-        public static string SendEmail(string password)
+        public static void SendEmail(string password)
         {
             SmtpServerIndex = From.IndexOf("@");
             SmtpServer = "smtp." + From[++SmtpServerIndex..];
 
             SmtpClient smtp = new SmtpClient();
 
-            try
-            {
-                smtp.Connect(SmtpServer, 587, SecureSocketOptions.StartTls);
+            smtp.Connect(SmtpServer, 587, SecureSocketOptions.StartTls);
 
-                smtp.Authenticate(From, password);
+            smtp.Authenticate(From, password);
 
-                smtp.Send(Message);
+            smtp.Send(Message);
 
-                smtp.Disconnect(true);
-            }
-            catch (AuthenticationException)
-            {
-                if (SmtpServer.Contains("gmail"))
-                {
-                    return "gmailError";
-                }
-
-                return "error";
-            }
-
-            return "Success";
+            smtp.Disconnect(true);
         }
     }
 }

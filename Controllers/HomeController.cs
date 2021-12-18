@@ -13,7 +13,6 @@ namespace MassMailWeb.Controllers
         {
             Email email = new Email();
 
-            ViewBag.AuthenticationWarn = false;
             ViewBag.SentSuccessfully = false;
 
             return View(email);
@@ -23,20 +22,8 @@ namespace MassMailWeb.Controllers
         public IActionResult Index(Email email)
         {
             EmailService.SetMessage(email.From, email.ToField, email.Subject, email.Body, email.BccOrNot, email.HtmlOrNot);
+            EmailService.SendEmail(email.Password);
 
-            try
-            {
-                EmailService.SendEmail(email.Password);
-            }
-            catch (AuthenticationException)
-            {
-                ViewBag.AuthenticationWarn = true;
-                ViewBag.SentSuccessfully = false;
-
-                return View();
-            }
-            
-            ViewBag.AuthenticationWarn = false;
             ViewBag.SentSuccessfully = true;
             
             return View();

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace MassMailWeb.Models
 {
@@ -19,7 +21,7 @@ namespace MassMailWeb.Models
 
         [Required]
         public string Body { get; set; }
-        public string Attachment { get; set; }
+        public List<IFormFile> Attachment { get; set; }
 
         [Display(Name = "Enviar como cópia oculta")]
         public bool BccOrNot { get; set; }

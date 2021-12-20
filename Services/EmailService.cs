@@ -1,6 +1,9 @@
 ﻿using MimeKit;
 using MailKit.Security;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using System.IO;
 
 namespace MassMailWeb.Services
 {
@@ -12,7 +15,7 @@ namespace MassMailWeb.Services
         private static string SmtpServer { get; set; }
         private static int SmtpServerIndex { get; set; }
 
-        public static MimeMessage SetMessage(string from, string toField, string subject, string body, bool bccOrNot, bool HtmlOrNot)
+        public static MimeMessage SetMessage(string from, string toField, string subject, string body, List<string> attachments, bool bccOrNot, bool HtmlOrNot)
         {
             From = from;
 
@@ -35,6 +38,11 @@ namespace MassMailWeb.Services
             Message.Subject = subject;
 
             BodyBuilder bodyBuilder = new BodyBuilder();
+
+            foreach (string attachment in attachments)
+            {
+                bodyBuilder.Attachments.Add(attachment);
+            }
 
             if (!HtmlOrNot)
             {

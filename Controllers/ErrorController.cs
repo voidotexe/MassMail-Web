@@ -17,14 +17,14 @@ namespace MassMailWeb.Controllers
                 if (exceptionHandler.Error is SocketException)
                 {
                     ViewBag.ExceptionTitle = "Socket Exception";
-                    ViewBag.ExceptionDescription = $"Host desconhecido. Verifique se o email está correto";
+                    ViewBag.ExceptionDescription = "Host desconhecido. Verifique se o email está correto";
 
                     return View();
                 }
                 else if (exceptionHandler.Error is AuthenticationException)
                 {
                     ViewBag.ExceptionTitle = "Authentication Exception";
-                    ViewBag.ExceptionDescription = $"E-mail ou senha incorretos.\n\nCaso estejam corretos e esteja usando Gmail, então é necessário ativar o acesso a app menos seguro";
+                    ViewBag.ExceptionDescription = "E-mail ou senha incorretos.\n\nCaso estejam corretos e esteja usando Gmail, então é necessário ativar o acesso a app menos seguro";
 
                     return View();
                 }

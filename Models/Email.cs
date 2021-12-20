@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MassMailWeb.Models
 {
-    public class Email// : IValidatableObject
+    public class Email
     {
         [Required]
         [EmailAddress]
@@ -21,7 +21,7 @@ namespace MassMailWeb.Models
 
         [Required]
         public string Body { get; set; }
-        public List<IFormFile> Attachment { get; set; }
+        public List<IFormFile> Attachments { get; set; }
 
         [Display(Name = "Enviar como cópia oculta")]
         public bool BccOrNot { get; set; }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MassMailWeb.Models;
-using MassMailWeb.Services;
+using MassMailWeb.Helpers;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using System.IO;
@@ -12,8 +12,6 @@ namespace MassMailWeb.Controllers
     public class HomeController : Controller
     {
         IWebHostEnvironment _webHostEnvironment;
-        private string currentDirectory;
-        private string wwwRoot;
         private string filePath;
         private List<string> attachments = new List<string>();
 
@@ -35,28 +33,9 @@ namespace MassMailWeb.Controllers
         [HttpPost]
         public IActionResult Index(Email email)
         {
-            wwwRoot = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads");
-            currentDirectory = Path.Combine(Directory.GetCurrentDirectory(), wwwRoot);
-
-            if (email.Attachment.Count > 0)
-            {
-                foreach (IFormFile attachment in email.Attachment)
-                {
-                    filePath = Path.Combine(currentDirectory, attachment.FileName);
-
-                    using (FileStream stream = new FileStream(Path.Combine(wwwRoot, attachment.FileName), FileMode.Create))
-                    {
-                        attachment.CopyTo(stream);
-                    }
-
-                    attachments.Add(Path.Combine(currentDirectory, attachment.FileName));
-                }
-            }
-
-            EmailService.SetMessage(email.From, email.ToField, email.Subject, email.Body, attachments, email.BccOrNot, email.HtmlOrNot);
-            EmailService.SendEmail(email.Password);
-
-            System.IO.File.Delete(filePath); // use of namescape System.IO for not getting confused with ControllerBase.File
+            EmailHelper.SetAttachments(_webHostEnvironment, email.Attachments);
+            EmailHelper.SetMessage(email.From, email.ToField, email.Subject, email.Body, email.BccOrNot, email.HtmlOrNot);
+            EmailHelper.SendEmail(email.Password);
 
             ViewBag.SentSuccessfully = true;
             

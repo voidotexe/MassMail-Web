@@ -29,7 +29,7 @@ namespace MassMailWeb.Helpers
             WwwRoot = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
             CurrentDirectory = Path.Combine(Directory.GetCurrentDirectory(), WwwRoot);
 
-            if (attachments.Count > 0)
+            if (attachments != null)
             {
                 foreach (IFormFile attachment in attachments)
                 {

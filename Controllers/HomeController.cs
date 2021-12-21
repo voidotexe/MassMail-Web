@@ -3,7 +3,6 @@ using MassMailWeb.Models;
 using MassMailWeb.Helpers;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
-using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
 namespace MassMailWeb.Controllers
@@ -27,6 +26,11 @@ namespace MassMailWeb.Controllers
 
             ViewBag.SentSuccessfully = false;
 
+            Cookies.From ??= HttpContext.Request.Cookies["From"];
+            Cookies.To ??= HttpContext.Request.Cookies["To"];
+            Cookies.Subject ??= HttpContext.Request.Cookies["Subject"];
+            Cookies.Body ??= HttpContext.Request.Cookies["Body"];
+
             return View(email);
         }
 
@@ -38,7 +42,17 @@ namespace MassMailWeb.Controllers
             EmailHelper.SendEmail(email.Password);
 
             ViewBag.SentSuccessfully = true;
-            
+
+            HttpContext.Response.Cookies.Append("From", email.From);
+            HttpContext.Response.Cookies.Append("To", email.ToField);
+            HttpContext.Response.Cookies.Append("Subject", email.Subject);
+            HttpContext.Response.Cookies.Append("Body", email.Body);
+
+            Cookies.From = HttpContext.Request.Cookies["From"];
+            Cookies.To = HttpContext.Request.Cookies["To"];
+            Cookies.Subject = HttpContext.Request.Cookies["Subject"];
+            Cookies.Body = HttpContext.Request.Cookies["Body"];
+
             return View();
         }
     }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MassMailWeb.Models;
 using MassMailWeb.Helpers;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 
@@ -11,8 +10,6 @@ namespace MassMailWeb.Controllers
     public class HomeController : Controller
     {
         IWebHostEnvironment _webHostEnvironment;
-        private string filePath;
-        private List<string> attachments = new List<string>();
 
         public HomeController(IWebHostEnvironment webHostEnvironment)
         {
@@ -22,7 +19,7 @@ namespace MassMailWeb.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            Email email = new Email();            
+            Email email = new Email();
 
             ViewBag.SentSuccessfully = false;
 

@@ -6,6 +6,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" asp-fallback-src="~/Scripts/jquery.validate.min.js" asp-fallback-test="window.jQuery"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" asp-fallback-src="~/Scripts/jquery.validate.unobtrusive.min.js" asp-fallback-test="window.jQuery"></script>
 
+	
+
 	<title>MassMail</title>
 </head>
 
@@ -32,10 +34,31 @@
 			<span asp-validation-for="Subject" style="color: red;"></span>
 		</div>
 		<div class="row-auto">
-			<textarea asp-for="Body" class="form-control" rows="6" placeholder="Mensagem">@Cookies.Body</textarea>
-			<input type="checkbox" asp-for="HtmlOrNot" class="form-check-input" />
+			@if(Cookies.Body != null)
+			{
+				<textarea asp-for="Body" class="form-control" rows="6" placeholder="Mensagem" id="body-field">@Cookies.Body</textarea>
+			}
+			else
+			{
+				<textarea asp-for="Body" class="form-control" rows="6" placeholder="Mensagem" id="body-field"></textarea>
+			}
 			<span asp-validation-for="Body" style="color: red;"></span>
-			<label asp-for="HtmlOrNot"></label>
+			<input type="checkbox" asp-for="HtmlOrNot" class="form-check-input" />
+			<label asp-for="HtmlOrNot"></label><br />
+			<label for="choose-body-template">Importar mensagem (.txt, .html)</label>
+			<input type="file" class="form-control form-control-sm" id="choose-body-template" accept=".txt,.html"/>
+
+			<script type="text/javascript">
+				document.getElementById('choose-body-template').addEventListener('change', function() {
+					var fr=new FileReader();
+					fr.onload=function(){
+						document.getElementById('body-field').textContent=fr.result;
+					}
+              
+					fr.readAsText(this.files[0]);
+				})
+			</script>
+			
 		</div>
 		<div class="row-auto col-6">
 			<input type="file" class="form-control form-control-sm" asp-for="Attachments" multiple/>

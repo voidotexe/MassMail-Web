@@ -1,0 +1,39 @@
+﻿@using MassMailWeb.Helpers
+
+@{
+	int rowCounter = 0;
+}
+
+<head>
+	<title>Histórico</title>
+	<script>
+	// TODO: Fix infinite update of rows
+</script>
+</head>
+
+<table class="table table-bordered table-hover table-sortable" id="history-table">
+	<tr class="text-center">
+		<td>From</td>
+		<td>To</td>
+		<td>Subject</td>
+		<td>Body</td>
+		<td>When</td>
+	</tr>
+	@*@if (DbHelper.emailCounter != rowCounter)
+	{*@
+		@foreach (var email in Model)
+		{
+			<tr class="text-center">
+				<td>@email.From</td>
+				<td>@email.To</td>
+				<td>@email.Subject</td>
+				<td>@email.Body</td>
+				<td>@email.When</td>
+			</tr>
+		}
+	@*}*@
+</table>
+
+<form>
+	<button type="submit">Apagar histórico</button>
+</form>

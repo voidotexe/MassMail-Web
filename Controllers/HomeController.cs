@@ -3,13 +3,16 @@ using MassMailWeb.Models;
 using MassMailWeb.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using System;
+using Dapper;
+using System.Data.SqlClient;
 
 namespace MassMailWeb.Controllers
 {
     [Route("/")]
     public class HomeController : Controller
     {
-        IWebHostEnvironment _webHostEnvironment;
+        public readonly IWebHostEnvironment _webHostEnvironment;
 
         public HomeController(IWebHostEnvironment webHostEnvironment)
         {
@@ -39,6 +42,12 @@ namespace MassMailWeb.Controllers
             EmailHelper.SendEmail(email.Password);
 
             ViewBag.SentSuccessfully = true;
+
+            DbHelper.Insert(email.From, email.ToField, email.Subject, email.Body, DateTime.Now);
+
+            /*
+             * Cookies stuff
+             */
 
             HttpContext.Response.Cookies.Append("From", email.From);
             HttpContext.Response.Cookies.Append("To", email.ToField);

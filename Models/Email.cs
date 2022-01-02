@@ -8,6 +8,7 @@ namespace MassMailWeb.Models
     {
         [Required]
         [EmailAddress]
+        [MaxLength(320)]
         public string From { get; set; }
 
         [Required]

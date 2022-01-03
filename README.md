@@ -12,7 +12,7 @@ _Web app version of MassMail_
 * Envio com cópia oculta (Cco)
 * Formatação em HTML
 * Anexos
-* Importação de templates de mensagem
+* Modelos de mensagem
 * Histórico de envio
 
 🇺🇸
@@ -22,7 +22,7 @@ _Web app version of MassMail_
 * Sending with blind carbon copy (Bcc)
 * HTML formatting
 * Attachments
-* Importing message templates
+* Message templates
 * Sending history
 
 ![Home](https://i.postimg.cc/RFQBwyZJ/Mass-Mail-Web-Screenshot.png)

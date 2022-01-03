@@ -19,6 +19,6 @@ _Web app version of MassMail_
 * Sending with blind carbon copy (Bcc)
 * HTML formatting
 
-![Screenshot](https://i.postimg.cc/0Q16MczQ/Mass-Mail-Web-Screenshot.png)
+![Screenshot](https://i.postimg.cc/RFQBwyZJ/Mass-Mail-Web-Screenshot.png)
 
 **.NET Core 3.1**

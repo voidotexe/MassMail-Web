@@ -4,8 +4,6 @@ using MassMailWeb.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System;
-using Dapper;
-using System.Data.SqlClient;
 
 namespace MassMailWeb.Controllers
 {

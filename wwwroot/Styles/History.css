@@ -1,0 +1,10 @@
+﻿.table{
+    margin: 0 auto;
+    height: 400px;
+    position: absolute;
+}
+
+#delete-history{
+    position: relative;
+    margin-top: 800px;
+}

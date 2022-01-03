@@ -23,7 +23,7 @@ _Web app version of MassMail_
 * HTML formatting
 * Attachments
 * Importing message templates
-* Sending History *(beta)*
+* Sending history *(beta)*
 
 ![Screenshot](https://i.postimg.cc/RFQBwyZJ/Mass-Mail-Web-Screenshot.png)
 

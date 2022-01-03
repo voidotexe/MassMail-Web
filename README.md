@@ -11,6 +11,9 @@ _Web app version of MassMail_
 * Múltiplos destinatários
 * Envio com cópia oculta (Cco)
 * Formatação em HTML
+* Anexos
+* Importação de templates de mensagem
+* Histórico de envio
 
 🇺🇸
 
@@ -18,7 +21,11 @@ _Web app version of MassMail_
 * Multiple recipients
 * Sending with blind carbon copy (Bcc)
 * HTML formatting
+* Attachments
+* Importing message templates
+* Sending history
 
-![Screenshot](https://i.postimg.cc/0Q16MczQ/Mass-Mail-Web-Screenshot.png)
+![Home](https://i.postimg.cc/RFQBwyZJ/Mass-Mail-Web-Screenshot.png)
+![History](https://i.postimg.cc/gcBQXGYL/Mass-Mail-Web-Screenshot-History.png)
 
 **.NET Core 3.1**

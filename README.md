@@ -13,7 +13,7 @@ _Web app version of MassMail_
 * Formatação em HTML
 * Anexos
 * Importação de templates de mensagem
-* Histórico de envio *(beta)*
+* Histórico de envio
 
 🇺🇸
 
@@ -23,8 +23,9 @@ _Web app version of MassMail_
 * HTML formatting
 * Attachments
 * Importing message templates
-* Sending history *(beta)*
+* Sending history
 
-![Screenshot](https://i.postimg.cc/RFQBwyZJ/Mass-Mail-Web-Screenshot.png)
+![Home](https://i.postimg.cc/RFQBwyZJ/Mass-Mail-Web-Screenshot.png)
+![History](https://i.postimg.cc/gcBQXGYL/Mass-Mail-Web-Screenshot-History.png)
 
 **.NET Core 3.1**

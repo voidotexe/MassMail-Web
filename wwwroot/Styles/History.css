@@ -1,10 +1,8 @@
-﻿.table{
+﻿#history-table{
     margin: 0 auto;
-    height: 400px;
+    height: 100px;
     position: absolute;
-}
-
-#delete-history{
-    position: relative;
-    margin-top: 800px;
+    width: 80%;
+    vertical-align: middle;
+    text-align: center;
 }

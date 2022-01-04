@@ -5,15 +5,17 @@
 	<link rel="stylesheet" href="~/Styles/History.css" />
 </head>
 
-<div class="table bg-white rounded border" style="overflow-y: scroll; height: 70%; width: 80%;">
-	<table id="history-table">
-		<tr class="text-center">
-			<td>From</td>
-			<td>To</td>
-			<td>Subject</td>
-			<td>Body</td>
-			<td>When</td>
-		</tr>
+<div class="bg-white" style="overflow-y: scroll; height: 70%; width: 80%;">
+	<table class="table table-bordered border-primary rounded" id="history-table">
+		<thead class="table-dark">
+			<tr>
+				<td>From</td>
+				<td>To</td>
+				<td>Subject</td>
+				<td>Body</td>
+				<td>When</td>
+			</tr>
+		</thead>
 		@foreach (var email in Model)
 		{
 			<tr class="text-center">

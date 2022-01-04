@@ -26,6 +26,6 @@ _Web app version of MassMail_
 * Sending history
 
 ![Home](https://i.postimg.cc/RFQBwyZJ/Mass-Mail-Web-Screenshot.png)
-![History](https://i.postimg.cc/gcBQXGYL/Mass-Mail-Web-Screenshot-History.png)
+![History](https://i.postimg.cc/DZNghHp4/Mass-Mail-Web-Screenshot-History.png)
 
 **.NET Core 3.1**

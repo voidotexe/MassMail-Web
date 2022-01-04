@@ -44,5 +44,16 @@ namespace MassMailWeb.Helpers
                 emailsDb.Add(row);
             }
         }
+
+        public static void Truncate()
+        {
+            string truncateSql = "TRUNCATE TABLE Mails";
+
+            using SqlConnection db = GetConnection();
+
+            db.Execute(truncateSql);
+
+            emailsDb.Clear();
+        }
     }
 }

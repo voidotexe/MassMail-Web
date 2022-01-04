@@ -5,26 +5,45 @@
 	<link rel="stylesheet" href="~/Styles/History.css" />
 </head>
 
-<div class="bg-white" style="overflow-y: scroll; height: 70%; width: 80%;">
+<div class="bg-white" style="overflow-y: scroll; height: 70%; width: 80%; position: absolute;">
 	<table class="table table-bordered border-primary rounded" id="history-table">
 		<thead class="table-dark">
 			<tr>
-				<td>From</td>
-				<td>To</td>
-				<td>Subject</td>
-				<td>Body</td>
-				<td>When</td>
+				<td>De</td>
+				<td>Para</td>
+				<td>Assunto</td>
+				<td>Mensagem</td>
+				<td>Quando</td>
 			</tr>
 		</thead>
-		@foreach (var email in Model)
+		@if (DbHelper.emailsDb.Count > 0)
+		{
+			foreach (var email in Model)
+			{
+				<tr class="text-center">
+					<td>@email.From</td>
+					<td>@email.To</td>
+					<td>@email.Subject</td>
+					<td>@email.Body</td>
+					<td>@email.When</td>
+				</tr>
+			}
+		}
+		else
 		{
 			<tr class="text-center">
-				<td>@email.From</td>
-				<td>@email.To</td>
-				<td>@email.Subject</td>
-				<td>@email.Body</td>
-				<td>@email.When</td>
-			</tr>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
 		}
 	</table>
+</div>
+
+<div>
+	<form method="post" asp-controller="History" asp-action="Index">
+		<button type="submit" class="btn btn-primary" id="delete-history">Apagar histórico</button>
+	</form>
 </div>

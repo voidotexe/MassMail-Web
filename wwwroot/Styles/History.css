@@ -2,7 +2,13 @@
     margin: 0 auto;
     height: 100px;
     position: absolute;
-    width: 80%;
+    width: 100%;
     vertical-align: middle;
     text-align: center;
+}
+
+#delete-history {
+    position: absolute;
+    margin-top: 380px;
+    margin-left: -70px;
 }

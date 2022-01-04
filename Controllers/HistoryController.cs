@@ -13,5 +13,13 @@ namespace MassMailWeb.Controllers
 
             return View(DbHelper.emailsDb);
         }
+
+        [HttpPost]
+        public IActionResult Index(object obj)
+        {
+            DbHelper.Truncate();
+
+            return View();
+        }
     }
 }

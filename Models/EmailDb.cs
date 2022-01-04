@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+ */
+
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MassMailWeb.Models

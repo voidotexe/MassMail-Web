@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+ */
 
 namespace MassMailWeb.Models
 {

@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+ */
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net.Sockets;
 using MailKit.Security;

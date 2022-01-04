@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+ */
+
+using Microsoft.AspNetCore.Mvc;
 using MassMailWeb.Helpers;
 
 namespace MassMailWeb.Controllers

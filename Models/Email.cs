@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+ */
+
+using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 

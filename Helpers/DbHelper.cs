@@ -1,4 +1,9 @@
-﻿using Dapper;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+ */
+
+using Dapper;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using MassMailWeb.Models;

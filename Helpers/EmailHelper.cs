@@ -1,4 +1,9 @@
-﻿using MimeKit;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+ */
+
+using MimeKit;
 using MailKit.Security;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
